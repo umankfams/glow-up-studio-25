@@ -1562,7 +1562,7 @@ const MathApp = () => {
       case 'statistika':
         return <StatistikaPage />;
       case 'geometri':
-        return <GeometryHomePage onNavigate={setCurrentPage} />;
+        return <GeometryHomePage/>;
       
       default:
         const shapeConfig = geometryData.find(shape => shape.id === currentPage);
