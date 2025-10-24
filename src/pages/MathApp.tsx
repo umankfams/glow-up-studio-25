@@ -272,7 +272,7 @@ const Navbar = ({ onNavigate, currentPage }: { onNavigate: (page: Page) => void;
             
             {isGeometryOpen && (
               <div 
-                className="absolute left-1/2 -translate-x-1/2 mt-2 w-max max-w-xl max-h-96 overflow-y-auto glass border border-white/20 rounded-xl shadow-2xl animate-scale-in z-50"
+                className="absolute left-1/2 -translate-x-1/2 mt-2 w-max max-w-xl max-h-96 overflow-y-auto bg-popover/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl animate-scale-in z-[100]"
                 onMouseLeave={() => setIsGeometryOpen(false)}
               >
                 <div className="p-2">
@@ -1562,7 +1562,7 @@ const MathApp = () => {
       case 'statistika':
         return <StatistikaPage />;
       case 'geometri':
-        return <GeometryHomePage/>;
+        return <GeometryHomePage onNavigate={setCurrentPage} />;
       
       default:
         const shapeConfig = geometryData.find(shape => shape.id === currentPage);
