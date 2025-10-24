@@ -223,6 +223,7 @@ const Header = () => (
 
 const Navbar = ({ onNavigate, currentPage }: { onNavigate: (page: Page) => void; currentPage: Page }) => {
   const [isGeometryOpen, setIsGeometryOpen] = useState(false);
+  const geometryButtonRef = React.useRef<HTMLButtonElement>(null);
   
   const navItems = [
     { id: 'home' as Page, label: 'Beranda', icon: Home },
@@ -255,8 +256,9 @@ const Navbar = ({ onNavigate, currentPage }: { onNavigate: (page: Page) => void;
             );
           })}
           
-          <div className="relative">
+          <div>
             <button
+              ref={geometryButtonRef}
               onClick={() => setIsGeometryOpen(!isGeometryOpen)}
               onMouseEnter={() => setIsGeometryOpen(true)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium whitespace-nowrap transition-all duration-300 ${
@@ -272,7 +274,7 @@ const Navbar = ({ onNavigate, currentPage }: { onNavigate: (page: Page) => void;
             
             {isGeometryOpen && (
               <div 
-                className="absolute left-1/2 -translate-x-1/2 mt-2 w-max max-w-xl max-h-96 overflow-y-auto bg-popover/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl animate-scale-in z-[100]"
+                className="fixed top-[72px] left-1/2 -translate-x-1/2 w-max max-w-xl max-h-96 overflow-y-auto bg-popover backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl animate-scale-in z-[9999]"
                 onMouseLeave={() => setIsGeometryOpen(false)}
               >
                 <div className="p-2">
